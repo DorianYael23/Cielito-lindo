@@ -1,0 +1,23 @@
+version: '3.8'
+services:
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_DATABASE: cielito_lindo_db
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+    ports:
+      - "3306:3306"
+
+  server:
+    build: ./server
+    ports:
+      - "4000:4000"
+    depends_on:
+      - db
+
+  client:
+    build: ./client
+    ports:
+      - "80:80"
+    depends_on:
+      - server

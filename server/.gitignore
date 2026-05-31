@@ -1,0 +1,8 @@
+# Dependencias y entornos
+node_modules/
+.env
+dist/
+
+# Archivos a repartir (Servidor)
+index.js
+db.js
